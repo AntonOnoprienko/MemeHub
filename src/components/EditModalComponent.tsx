@@ -22,9 +22,9 @@ const  EditModalComponent:React.FC<Props> = ({isOpen, onOpenChange, meme, setMem
     const [title, setTitle] = useState<string>(meme.title);
     const [imageUrl, setImageUrl] = useState<string>(meme.imageUrl);
     const [likes, setLikes] = useState<number>(meme.likes);
-    const titleErrors = [];
-    const urlErrors = [];
-    const likesErrors = [];
+    const titleErrors:string[] = [];
+    const urlErrors:string[] = [];
+    const likesErrors:string[] = [];
 
 
     const handleSave = () => {
@@ -120,8 +120,8 @@ const  EditModalComponent:React.FC<Props> = ({isOpen, onOpenChange, meme, setMem
                                     labelPlacement="outside"
                                     name="likes"
                                     placeholder="Enter number of likes"
-                                    value={likes}
-                                    onValueChange={setLikes}
+                                    value={likes.toString()}
+                                    onValueChange={(e) => setLikes(Number(e))}
                                 />
                             </ModalBody>
                             <ModalFooter>

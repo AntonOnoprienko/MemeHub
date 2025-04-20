@@ -1,8 +1,7 @@
 import { Button } from "@heroui/react";
 import * as React from "react";
-import {FC, useEffect} from "react";
+import {FC} from "react";
 import { useMemes } from "../../context/MemeContext";
-import {IMeme} from "../../types";
 
 const HeartIcon = ({
                        fill = "currentColor",
@@ -32,25 +31,24 @@ const HeartIcon = ({
     );
 };
 
+interface LikeButtonProps {
+    id: number;
+}
 
 
-export const LikeButton: FC<IMeme> = ({ memeId }) => {
+export const LikeButton:FC<LikeButtonProps> = ({ id }) => {
     const { memes, updateLikes } = useMemes();
-    const meme:IMeme = memes.find((m) => m.id === memeId);
-    if (!meme) return null;
+    const {isLiked, likes} = memes.find((m) => m.id === id);
+    if (!memes) return null;
 
-    const isLiked = meme.isLiked ?? false;
-    const likes = meme.likes ?? 0;
+    const isLikedCurrent:boolean = isLiked ?? false;
+    const likesCurrent:number = likes ?? 0;
 
     const handleLikeClick = () => {
-        const newLikes = isLiked ? likes - 1 : likes + 1;
-        const newIsLiked = !isLiked;
-        updateLikes(memeId, newLikes, newIsLiked);
+        const newLikes = isLikedCurrent ? likesCurrent - 1 : likesCurrent + 1;
+        const newIsLiked = !isLikedCurrent;
+        updateLikes(id, newLikes, newIsLiked);
     };
-
-    useEffect(()=>{
-        console.log(meme)
-    },[])
 
     return (
         <p className="flex items-center gap-2 text-base font-medium self-end">
@@ -62,7 +60,7 @@ export const LikeButton: FC<IMeme> = ({ memeId }) => {
                 className="hover:scale-110 transition-transform duration-200"
                 onPress={handleLikeClick}
             >
-                <HeartIcon fill={isLiked ? "red" : "gray"} filled={isLiked} />
+                <HeartIcon fill={isLikedCurrent ? "red" : "gray"} filled={isLikedCurrent} />
             </Button>
             <span>{likes}</span>
         </p>

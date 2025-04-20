@@ -27,7 +27,7 @@ const MemeItemComponent:React.FC<IMeme> = ({ id, title, imageUrl }) => {
                 <small>
                     <AnchorLink url={imageUrl}>Open Image</AnchorLink>
                 </small>
-                    <LikeButton memeId={id}  />
+                    <LikeButton id={id}  />
             </CardFooter>
         </Card>
     );
