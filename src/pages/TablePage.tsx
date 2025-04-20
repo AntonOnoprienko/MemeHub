@@ -20,7 +20,6 @@ const TablePage: React.FC = () => {
     return (
         <>
             <Table
-
                 isHeaderSticky={false}
                 hideHeader={false}
                 isMultiSelectable={false}
@@ -42,7 +41,7 @@ const TablePage: React.FC = () => {
                     <TableColumn key="likes">Likes</TableColumn>
                     <TableColumn key="actions" >Actions</TableColumn>
                 </TableHeader>
-                <TableBody<IMeme>
+                <TableBody
                     items={memes}
                     loadingContent={<Spinner label="Loading..."/>}
                 >

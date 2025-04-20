@@ -1,16 +1,26 @@
-import { Button } from "@heroui/react";
+import {Button} from "@heroui/react";
 import * as React from "react";
 import {FC} from "react";
-import { useMemes } from "../../context/MemeContext";
+import {useMemes} from "../../context/MemeContext";
 
-const HeartIcon = ({
-                       fill = "currentColor",
-                       filled,
-                       size,
-                       height,
-                       width,
-                       ...props
-                   }) => {
+interface HeartIconProps {
+    fill?: string;
+    filled?: boolean;
+    size?: number;
+    height?: number;
+    width?: number;
+
+    [key: string]: any;
+}
+
+const HeartIcon: FC<HeartIconProps> = ({
+                fill = "currentColor",
+                filled,
+                size,
+                height,
+                width,
+                ...props
+                }) => {
     return (
         <svg
             fill={filled ? fill : "none"}
@@ -36,13 +46,13 @@ interface LikeButtonProps {
 }
 
 
-export const LikeButton:FC<LikeButtonProps> = ({ id }) => {
-    const { memes, updateLikes } = useMemes();
-    const {isLiked, likes} = memes.find((m) => m.id === id);
+export const LikeButton: FC<LikeButtonProps> = ({id}) => {
+    const {memes, updateLikes} = useMemes();
     if (!memes) return null;
 
-    const isLikedCurrent:boolean = isLiked ?? false;
-    const likesCurrent:number = likes ?? 0;
+    const {isLiked, likes} = memes.find((m) => m.id === id);
+    const isLikedCurrent: boolean = isLiked ?? false;
+    const likesCurrent: number = likes ?? 0;
 
     const handleLikeClick = () => {
         const newLikes = isLikedCurrent ? likesCurrent - 1 : likesCurrent + 1;
@@ -60,7 +70,8 @@ export const LikeButton:FC<LikeButtonProps> = ({ id }) => {
                 className="hover:scale-110 transition-transform duration-200"
                 onPress={handleLikeClick}
             >
-                <HeartIcon fill={isLikedCurrent ? "red" : "gray"} filled={isLikedCurrent} />
+                <HeartIcon fill={isLikedCurrent ? "red" : "gray"} filled={isLikedCurrent} height={24} width={24}
+                           size={24}/>
             </Button>
             <span>{likes}</span>
         </p>

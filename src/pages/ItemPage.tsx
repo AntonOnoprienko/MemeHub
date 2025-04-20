@@ -1,15 +1,14 @@
 import { useParams, useNavigate } from "react-router-dom";
 import { useMemes } from "../context/MemeContext";
-import { IMeme } from "../types";
 import MemeCardDetails from "../components/MemeCardDetails";
 import {Button} from "@heroui/react";
 
 const ItemPage = () => {
     const navigate = useNavigate();
     const { id } = useParams<{ id?: string }>();
-    const { memes } = useMemes<IMeme[] | null>();
+    const { memes } = useMemes();
 
-    if (!memes || !id) return <p className="p-4">Meme not found</p>;
+    if (!memes || !id || !meme) return <p className="p-4">Meme not found</p>;
 
     const meme = memes.find((m) => m.id.toString() === id);
     if (!meme) return <p className="p-4">Meme not found</p>;
