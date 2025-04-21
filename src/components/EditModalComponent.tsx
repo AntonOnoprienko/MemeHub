@@ -89,6 +89,7 @@ const  EditModalComponent:React.FC<Props> = ({isOpen, onOpenChange, meme, setMem
                                     placeholder="Enter your title"
                                     value={titleValue}
                                     onValueChange={setTitleValue}
+                                    className="text-base"
                                 />
                                 <Input
                                     errorMessage={() => (
@@ -106,6 +107,7 @@ const  EditModalComponent:React.FC<Props> = ({isOpen, onOpenChange, meme, setMem
                                     placeholder="Enter image Url"
                                     value={imageUrlValue}
                                     onValueChange={setImageUrlValue}
+                                    className="text-base"
                                 />
                                 <Input
                                     errorMessage={() => (
@@ -123,6 +125,7 @@ const  EditModalComponent:React.FC<Props> = ({isOpen, onOpenChange, meme, setMem
                                     placeholder="Enter number of likes"
                                     value={likesValue.toString()}
                                     onValueChange={(e) => setLikesValue(Number(e))}
+                                    className="text-base"
                                 />
                             </ModalBody>
                             <ModalFooter>

@@ -28,7 +28,7 @@ const NavbarComponent: React.FC = () => {
                     className="sm:hidden"
                 />
                 <NavLink to={'/list'}>
-                <NavbarBrand>
+                <NavbarBrand >
                     <Image alt="Logo" src={logo} width={50} />
                     <p className="font-bold text-inherit ml-3">MEMEHUB</p>
                 </NavbarBrand>

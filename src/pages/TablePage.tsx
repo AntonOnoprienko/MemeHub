@@ -19,7 +19,7 @@ const TablePage = () => {
         <>
             <h2 className="text-center text-bold">Memes information table</h2>
             <Table layout={'auto'} isHeaderSticky={false} hideHeader={false}
-                  fullWidth={true} isStriped={false} isCompact={false}
+                  fullWidth={true} isStriped={true} isCompact={false}
 
 
                    aria-label="Memes Table"
