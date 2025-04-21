@@ -6,20 +6,19 @@
     "module": "ESNext",
     "skipLibCheck": true,
     "composite": true,
-    "emitDeclarationOnly": false,
 
-    /* Bundler mode */
-    "moduleResolution": "bundler",
+    "noEmit": true, // 🔧 ← вот это добавь
     "allowImportingTsExtensions": true,
+
+    "moduleResolution": "bundler",
     "isolatedModules": true,
     "moduleDetection": "force",
 
-    /* Linting */
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
-    "noUncheckedSideEffectImports": true,
+    "noUncheckedSideEffectImports": true
   },
   "include": ["vite.config.ts"]
 }
