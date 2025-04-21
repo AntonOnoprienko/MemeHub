@@ -1,5 +1,4 @@
 import {Button} from "@heroui/react";
-import * as React from "react";
 import {FC} from "react";
 import {useMemes} from "../../context/MemeContext";
 
@@ -48,9 +47,9 @@ interface LikeButtonProps {
 
 export const LikeButton: FC<LikeButtonProps> = ({id}) => {
     const {memes, updateLikes} = useMemes();
-    if (!memes) return null;
-
-    const {isLiked, likes} = memes.find((m) => m.id === id);
+    const meme = memes.find((m) => m.id === id);
+    if (!meme) return null;
+    const { isLiked, likes } = meme;
     const isLikedCurrent: boolean = isLiked ?? false;
     const likesCurrent: number = likes ?? 0;
 

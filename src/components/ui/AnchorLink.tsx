@@ -1,12 +1,12 @@
 import {Link} from "@heroui/react";
-import {ReactNode, FC} from "react";
+import * as React from 'react';
 
 interface IProps {
     url: string;
-    children: ReactNode
+    children: React.ReactNode;
 }
 
- const AnchorIcon = (props) => {
+ const AnchorIcon:React.FC<React.SVGProps<SVGSVGElement>> = (props) => {
     return (
         <svg
             aria-hidden="true"
@@ -28,8 +28,7 @@ interface IProps {
         </svg>
     );
 };
-
-export const  AnchorLink:FC<IProps> = ({url,children}) => {
+export const  AnchorLink:React.FC<IProps> = ({url,children}) => {
     return (
         <Link
             isExternal

@@ -7,8 +7,7 @@
     "skipLibCheck": true,
     "composite": true,
 
-    "noEmit": true, // 🔧 ← вот это добавь
-    "allowImportingTsExtensions": true,
+    "noEmit": true,
 
     "moduleResolution": "bundler",
     "isolatedModules": true,
@@ -18,7 +17,6 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
-    "noUncheckedSideEffectImports": true
   },
   "include": ["vite.config.ts"]
 }

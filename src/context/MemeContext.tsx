@@ -13,7 +13,7 @@ type MemeContextType = {
 const MemeContext = createContext<MemeContextType | null>(null);
 
 export const MemeProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-    const [memes, setMemes] = useMemesStorage<IMeme[]>(initialMemes);
+    const [memes, setMemes] = useMemesStorage(initialMemes);
 
     const updateLikes = (id: number, newLikes: number, isLiked: boolean) => {
         setMemes((prevMemes) =>

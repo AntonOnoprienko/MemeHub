@@ -7,11 +7,8 @@ const ItemPage = () => {
     const navigate = useNavigate();
     const { id } = useParams<{ id?: string }>();
     const { memes } = useMemes();
-
-    if (!memes || !id || !meme) return <p className="p-4">Meme not found</p>;
-
     const meme = memes.find((m) => m.id.toString() === id);
-    if (!meme) return <p className="p-4">Meme not found</p>;
+    if (!memes || !id || !meme) return <p className="p-4">Meme not found</p>;
 
     const currentIndex = memes.findIndex((m) => m.id.toString() === id);
     const prevMeme = memes[currentIndex - 1];
