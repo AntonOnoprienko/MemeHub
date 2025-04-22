@@ -1,6 +1,6 @@
 import {useTheme} from "@heroui/use-theme";
 import {Select, SelectItem} from "@heroui/react";
-import {ReactNode, ChangeEvent} from "react";
+import { ChangeEvent} from "react";
 interface ITheme {
     key: string;
     label: string;
@@ -34,7 +34,7 @@ const ThemeSwitcher = () => {
                 onChange={changeTheme}
 
             >
-                {themes.map((t: ITheme):ReactNode => (
+                {themes.map((t: ITheme):any => (
                     <SelectItem isDisabled={theme === t.key} key={t.key} value={t.key}>
                         {t.label}
                     </SelectItem>
