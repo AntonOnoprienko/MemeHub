@@ -69,12 +69,13 @@ const  EditModalComponent:React.FC<Props> = ({isOpen, onOpenChange, meme, setMem
     return (
         <>
             <Modal isOpen={isOpen} onOpenChange={onOpenChange}>
-                <ModalContent >
+                <ModalContent className="px-3 sm:px-6 py-4 max-w-full sm:max-w-md mx-4 sm:mx-auto" >
                     {(onClose) => (
                         <>
                             <ModalHeader>Edit Meme</ModalHeader>
                             <ModalBody className="flex flex-col gap-4">
                                 <Input
+
                                     errorMessage={() => (
                                         <ul>
                                             {titleErrors.map((error, i) => (
@@ -89,7 +90,7 @@ const  EditModalComponent:React.FC<Props> = ({isOpen, onOpenChange, meme, setMem
                                     placeholder="Enter your title"
                                     value={titleValue}
                                     onValueChange={setTitleValue}
-                                    className="text-base"
+                                    className="sm:text-lg input-mobile"
                                 />
                                 <Input
                                     errorMessage={() => (
@@ -107,7 +108,7 @@ const  EditModalComponent:React.FC<Props> = ({isOpen, onOpenChange, meme, setMem
                                     placeholder="Enter image Url"
                                     value={imageUrlValue}
                                     onValueChange={setImageUrlValue}
-                                    className="text-base"
+                                    className="sm:text-lg input-mobile"
                                 />
                                 <Input
                                     errorMessage={() => (
@@ -125,7 +126,7 @@ const  EditModalComponent:React.FC<Props> = ({isOpen, onOpenChange, meme, setMem
                                     placeholder="Enter number of likes"
                                     value={likesValue.toString()}
                                     onValueChange={(e) => setLikesValue(Number(e))}
-                                    className="text-base"
+                                    className="sm:text-lg input-mobile"
                                 />
                             </ModalBody>
                             <ModalFooter>

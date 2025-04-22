@@ -11,6 +11,7 @@ import {
 } from "@heroui/react";
 import { NavLink } from "react-router-dom";
 import logo from "../assets/logo.png";
+import ThemeSwitcher from "./ThemeSwitcher";
 
 const navLinks = [
     { label: "Table", to: "/table" },
@@ -21,7 +22,7 @@ const NavbarComponent: React.FC = () => {
     const [isMenuOpen, setIsMenuOpen] = React.useState(false);
 
     return (
-        <Navbar onMenuOpenChange={setIsMenuOpen} isMenuOpen={isMenuOpen}>
+        <Navbar className={'py-2'} onMenuOpenChange={setIsMenuOpen} isMenuOpen={isMenuOpen}>
             <NavbarContent>
                 <NavbarMenuToggle
                     aria-label={isMenuOpen ? "Close menu" : "Open menu"}
@@ -69,6 +70,12 @@ const NavbarComponent: React.FC = () => {
                     </NavbarMenuItem>
                 ))}
             </NavbarMenu>
+            <NavbarContent justify={'end'}>
+                <NavbarItem>
+                    <ThemeSwitcher />
+                </NavbarItem>
+            </NavbarContent>
+
         </Navbar>
     );
 };
