@@ -35,7 +35,7 @@ const ThemeSwitcher = () => {
 
             >
                 {themes.map((t: ITheme):any => (
-                    <SelectItem isDisabled={theme === t.key} key={t.key} value={t.key}>
+                    <SelectItem isDisabled={theme === t.key} key={t.key} >
                         {t.label}
                     </SelectItem>
                 ))}
