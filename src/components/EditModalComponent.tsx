@@ -9,7 +9,6 @@ import {
 import * as React from "react";
 import {IMeme} from "../types";
 import {useEffect, useState} from "react";
-import {useIsMobile} from "../hooks/useIsMobile";
 
 interface Props {
     isOpen: boolean;
@@ -23,7 +22,6 @@ const  EditModalComponent:React.FC<Props> = ({isOpen, onOpenChange, meme, setMem
     const [titleValue, setTitleValue] = useState<string>('');
     const [imageUrlValue, setImageUrlValue] = useState<string>('');
     const [likesValue, setLikesValue] = useState<number>(0);
-    const isMobile = useIsMobile();
     const titleErrors:string[] = [];
     const urlErrors:string[] = [];
     const likesErrors:string[] = [];
@@ -70,7 +68,7 @@ const  EditModalComponent:React.FC<Props> = ({isOpen, onOpenChange, meme, setMem
 
     return (
         <>
-            <Modal isOpen={isOpen} onOpenChange={onOpenChange} isDismissable={!isMobile}>
+            <Modal isOpen={isOpen} onOpenChange={onOpenChange}>
                 <ModalContent className="px-3 sm:px-6 py-4 max-w-full sm:max-w-md mx-4 sm:mx-auto" >
                     {(onClose) => (
                         <>
@@ -92,7 +90,7 @@ const  EditModalComponent:React.FC<Props> = ({isOpen, onOpenChange, meme, setMem
                                     placeholder="Enter your title"
                                     value={titleValue}
                                     onValueChange={setTitleValue}
-
+                                    className="sm:text-lg input-mobile"
                                 />
                                 <Input
                                     errorMessage={() => (
@@ -110,7 +108,7 @@ const  EditModalComponent:React.FC<Props> = ({isOpen, onOpenChange, meme, setMem
                                     placeholder="Enter image Url"
                                     value={imageUrlValue}
                                     onValueChange={setImageUrlValue}
-
+                                    className="sm:text-lg input-mobile"
                                 />
                                 <Input
                                     errorMessage={() => (
@@ -128,7 +126,7 @@ const  EditModalComponent:React.FC<Props> = ({isOpen, onOpenChange, meme, setMem
                                     placeholder="Enter number of likes"
                                     value={likesValue.toString()}
                                     onValueChange={(e) => setLikesValue(Number(e))}
-
+                                    className="sm:text-lg input-mobile"
                                 />
                             </ModalBody>
                             <ModalFooter>
