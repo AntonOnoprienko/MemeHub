@@ -9,6 +9,7 @@ import {
 import * as React from "react";
 import {IMeme} from "../types";
 import {useEffect, useState} from "react";
+import {useIsMobile} from "../hooks/useIsMobile";
 
 interface Props {
     isOpen: boolean;
@@ -22,6 +23,7 @@ const  EditModalComponent:React.FC<Props> = ({isOpen, onOpenChange, meme, setMem
     const [titleValue, setTitleValue] = useState<string>('');
     const [imageUrlValue, setImageUrlValue] = useState<string>('');
     const [likesValue, setLikesValue] = useState<number>(0);
+    const isMobile = useIsMobile();
     const titleErrors:string[] = [];
     const urlErrors:string[] = [];
     const likesErrors:string[] = [];
@@ -68,7 +70,7 @@ const  EditModalComponent:React.FC<Props> = ({isOpen, onOpenChange, meme, setMem
 
     return (
         <>
-            <Modal isOpen={isOpen} onOpenChange={onOpenChange}>
+            <Modal isOpen={isOpen} onOpenChange={onOpenChange} isDismissable={!isMobile}>
                 <ModalContent className="px-3 sm:px-6 py-4 max-w-full sm:max-w-md mx-4 sm:mx-auto" >
                     {(onClose) => (
                         <>
