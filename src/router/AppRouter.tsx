@@ -3,12 +3,14 @@ import MainLayout from "../layout/MainLayout";
 import ListPage from "../pages/ListPage";
 import TablePage from "../pages/TablePage";
 import ItemPage from "../pages/ItemPage";
+import ReduxTest from "../components/ReduxPage";
 
 const AppRouter = () => (
     <Routes>
         <Route element={<MainLayout />}>
             <Route path="*" element={<ListPage />} />
             <Route path="/table" element={<TablePage />} />
+            <Route path="/redux" element={<ReduxTest />} />
             <Route path="/list/item/:id" element={<ItemPage />} />
         </Route>
     </Routes>

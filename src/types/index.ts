@@ -5,3 +5,9 @@ export interface IMeme {
     likes: number;
     isLiked?: boolean;
 }
+
+export interface IUser {
+    id: number;
+    name: string;
+    email: string;
+}

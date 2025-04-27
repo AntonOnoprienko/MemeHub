@@ -3,6 +3,7 @@ import { IMeme } from '../types';
 import ModalComponent from "../components/EditModalComponent";
 import { useState } from "react";
 import { useMemes } from "../context/MemeContext";
+import ReduxTest from "../components/ReduxPage";
 
 
 const TablePage = () => {

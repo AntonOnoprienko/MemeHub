@@ -16,6 +16,7 @@ import ThemeSwitcher from "./ThemeSwitcher";
 const navLinks = [
     { label: "Table", to: "/table" },
     { label: "List", to: "/list" },
+    { label: 'Redux', to:"/redux"}
 ];
 
 const NavbarComponent: React.FC = () => {
