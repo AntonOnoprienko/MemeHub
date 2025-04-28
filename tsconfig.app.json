@@ -17,6 +17,7 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
     "composite": true,
+    "noImplicitAny": true
   },
   "include": ["src"]
 }

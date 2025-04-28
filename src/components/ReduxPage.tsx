@@ -1,16 +1,19 @@
-import {FC, useEffect} from "react";
-import {useAppSelector} from "../hooks/redux";
+import {FC} from "react";
+import {useAppDispatch, useAppSelector} from "../hooks/redux";
+import {Button} from "@heroui/react";
+import {userSlice} from '../store/reducers/UserSlice'
 
 
 
 const ReduxPage:FC = () => {
-    const {users,isLoading, error} = useAppSelector((state)=> state.userReducer)
-    useEffect(()=>{
-        console.log(`users: ${users}, isLoading: ${isLoading},error: ${error}`)
-    },[])
+    const count = useAppSelector(state => state.userReducer.count)
+    const dispatch = useAppDispatch()
+    const {increment} = userSlice.actions
+
     return (
         <div className="h-[calc(100vh-164px)]">
-
+            {count}
+            <Button onPress={() => {dispatch(increment(1))}}>1</Button>
         </div>
     );
 };
