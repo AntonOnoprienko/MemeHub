@@ -1,7 +1,7 @@
 import {IUser} from "../../types";
 import {createSlice, PayloadAction} from "@reduxjs/toolkit";
 
-interface UserState {
+export interface UserState {
     users: IUser [];
     isLoading: boolean;
     error: string;
